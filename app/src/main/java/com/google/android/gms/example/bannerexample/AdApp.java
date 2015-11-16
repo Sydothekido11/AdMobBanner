@@ -30,7 +30,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 /**
+ * @author snem8901
+ * @version 1.3 11/16/2015
  * Main Activity. Inflates main activity xml and child fragments.
+ * Also declares the widgets and layouts being used.
  */
 public class AdApp extends ActionBarActivity {
 
@@ -40,6 +43,11 @@ public class AdApp extends ActionBarActivity {
     private TextView colorText;
 
 
+    /**
+     * Finds the ad by id and then displays it while the app is running.
+     * Also finds the other widgets being used by id.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +95,9 @@ public class AdApp extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Whenever the app opens or closes, the ad banner is either shut off or turned on.
+     */
     /** Called when leaving the activity */
     @Override
     public void onPause() {
@@ -114,6 +125,9 @@ public class AdApp extends ActionBarActivity {
         super.onDestroy();
     }
 
+    /**
+     * Creates a randomization of colors with integers.
+     */
     private void changeColors()
     {
         int redColor;
@@ -133,12 +147,19 @@ public class AdApp extends ActionBarActivity {
         background.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
     }
 
+    /**
+     * Makes the text visible throughout the use of the app.
+     */
     private void changeVisibility()
     {
         colorText.setVisibility(View.VISIBLE);
     }
 
 
+    /**
+     * Listener for when the colorButton is clicked the colors of the background randomly change.
+     * Another listener is used here for displaying the visibility of the text.
+     */
     private void setupListeners()
     {
         colorButton.setOnClickListener(new View.OnClickListener()
